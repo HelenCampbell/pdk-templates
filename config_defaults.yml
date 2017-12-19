@@ -12,6 +12,7 @@
   bundler_args: --without system_tests
   env:
     - PUPPET_GEM_VERSION="~> 4.0" CHECK=spec
+    - PUPPET_GEM_VERSION="~> 5.0" CHECK=spec
   docker_sets:
   docker_defaults:
     # values will replace @@SET@@ with the docker_sets' value
@@ -25,9 +26,6 @@
     - env: CHECK=rubocop
     - env: CHECK="syntax lint"
     - env: CHECK=metadata_lint
-    - rvm: 2.4.1
-      env: PUPPET_GEM_VERSION="~> 5.0"
-      bundler_args: --without system_tests
   extras:
     - rvm: 2.1.9 
       script: "\"bundle exec rake release_checks\""
